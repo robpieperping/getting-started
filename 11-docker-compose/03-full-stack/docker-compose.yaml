@@ -65,8 +65,8 @@ services:
       - SERVER_PROFILE_PATH=baseline/pingdatagovernance
     env_file:
       - ~/.pingidentity/devops
-    volumes:
-      - ${HOME}/projects/devops/volumes/full-stack.pingdatagovernance:/opt/out
+    #volumes:
+    #  - ${HOME}/projects/devops/volumes/full-stack.pingdatagovernance:/opt/out
     #  - ${HOME}/projects/devops/pingidentity-server-profiles/baseline/pingdatagovernance:/opt/in
     ports:
       - "8080:80"
@@ -83,8 +83,8 @@ services:
       - SERVER_PROFILE_PATH=baseline/pingfederate
     env_file:
       - ~/.pingidentity/devops
-    volumes:
-      - ${HOME}/projects/devops/volumes/full-stack.pingfederate:/opt/out
+    #volumes:
+    #  - ${HOME}/projects/devops/volumes/full-stack.pingfederate:/opt/out
     #  - ${HOME}/projects/devops/pingidentity-server-profiles/baseline/pingfederate:/opt/in
     ports:
       - "9031:9031"
@@ -100,8 +100,8 @@ services:
       - SERVER_PROFILE_PATH=baseline/pingdirectory
     env_file:
       - ~/.pingidentity/devops
-    volumes:
-      - ${HOME}/projects/devops/volumes/full-stack.pingdirectory:/opt/out
+    #volumes:
+    #  - ${HOME}/projects/devops/volumes/full-stack.pingdirectory:/opt/out
     #  - ${HOME}/projects/devops/pingidentity-server-profiles/baseline/pingdirectory:/opt/in
     ulimits:
       nproc:
