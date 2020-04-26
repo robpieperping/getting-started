@@ -1,0 +1,1 @@
+See [PingDirectory deployments across Kubernetes clusters](../../docs/deployK8sPD-clusters.md) for more information.

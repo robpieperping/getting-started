@@ -1,0 +1,1 @@
+See [PingFederate clustering using Docker Swarm and AWS S3](../../docs/swarmPfCluster.md) for more information.

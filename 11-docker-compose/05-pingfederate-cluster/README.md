@@ -1,0 +1,1 @@
+See [Deploy a PingFederate cluster](../../docs/deployPfCluster.md) for more information.

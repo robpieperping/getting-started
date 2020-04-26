@@ -1,0 +1,1 @@
+See [Deploy a single Docker container](../docs/deployStandalone.md) and [Standalone deployment scripts](../docs/deployStandaloneScripts.md) for information.

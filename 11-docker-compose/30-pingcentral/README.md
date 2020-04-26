@@ -1,0 +1,1 @@
+See [Deploy a PingCentral stack](../../docs/deployPingCentral.md) for more information.

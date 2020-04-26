@@ -1,0 +1,1 @@
+See [Deploy PingDirectory and PingDataSync](../../docs/deploySync.md) for more information.

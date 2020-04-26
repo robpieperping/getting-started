@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pingaccess-engine
+  labels:
+    role: pingaccess-engine
+spec:
+  ports:
+    - port: 443
+      name: pingaccess-engine
+      targetPort: 3000
+  selector:
+    role: pingaccess-engine
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pingaccess-engine
+  labels:
+    role: pingaccess-engine
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      role: pingaccess-engine
+  template:
+    metadata:
+      name: pingaccess-engine
+      labels:
+        role: pingaccess-engine
+    spec:
+      containers:
+      - name: pingaccess-engine
+        image: pingidentity/pingaccess:6.0.0-alpine-edge
+        ports:        
+        - containerPort: 3000
+        envFrom:
+        - configMapRef:
+            name: pingaccess-engine-environment-variables
+        - secretRef:
+            name: devops-secret
