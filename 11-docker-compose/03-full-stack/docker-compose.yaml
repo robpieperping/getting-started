@@ -48,8 +48,8 @@ services:
     #          server build.  The local /opt/out directory must be empty when building new server
     #             /opt/out - Resulting server build
     #             /opt/in  - Inbound server-profile detail in liue of SERVER_PROFILE_URL (must be commented out)
-    volumes:
-       - ${HOME}/projects/devops/volumes/full-stack.pingaccess:/opt/out
+    #volumes:
+    #   - ${HOME}/projects/devops/volumes/full-stack.pingaccess:/opt/out
     #   - ${HOME}/projects/devops/pingidentity-server-profiles/baseline/pingaccess:/opt/in
     ports:
       - "443:443"
@@ -97,7 +97,7 @@ services:
     image: pingidentity/pingdirectory:${PING_IDENTITY_DEVOPS_TAG}
     environment:
       - SERVER_PROFILE_URL=https://github.com/robpieperping/pingidentity-server-profiles-master.git
-      - SERVER_PROFILE_PATH=baseline/pingdirectory
+      - SERVER_PROFILE_PATH=getting-started/pingdirectory
     env_file:
       - ~/.pingidentity/devops
     #volumes:
