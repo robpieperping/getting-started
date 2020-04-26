@@ -94,7 +94,7 @@ services:
       - pingnet-internal
 
   pingdirectory:
-    image: pingidentity/pingdirectory:${PING_IDENTITY_DEVOPS_TAG}
+    image: pingidentity/pingdirectory:2001
     environment:
       - SERVER_PROFILE_URL=https://github.com/robpieperping/pingidentity-server-profiles-master.git
       - SERVER_PROFILE_PATH=baseline/pingdirectory
