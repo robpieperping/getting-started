@@ -4,14 +4,14 @@ version: "3.1"
 services:
   pingdatagovernance:
     image: pingidentity/pingdatagovernance:${PING_IDENTITY_DEVOPS_TAG}
-    environment: 
-      - SERVER_PROFILE_URL=https://github.com/pingidentity/pingidentity-server-profiles.git
+    environment:
+      - SERVER_PROFILE_URL=https://github.com/robpieperping/pingidentity-server-profiles-master.git
       - SERVER_PROFILE_PATH=pdg-pap-integration/pingdatagovernance
       - SERVER_PROFILE_PARENT=PDG
-      - SERVER_PROFILE_PDG_URL=https://github.com/pingidentity/pingidentity-server-profiles.git
+      - SERVER_PROFILE_PDG_URL=https://github.com/robpieperping/pingidentity-server-profiles-master.git
       - SERVER_PROFILE_PDG_PATH=baseline/pingdatagovernance
       - PING_IDENTITY_ACCEPT_EULA=YES
-    env_file: 
+    env_file:
       - ~/.pingidentity/devops
     #volumes:
     #  - ${HOME}/projects/devops/volumes/full-stack.pingdatagovernance:/opt/out
@@ -32,12 +32,12 @@ services:
 
   pingdatagovernancepap:
     image: pingidentity/pingdatagovernancepap:${PING_IDENTITY_DEVOPS_TAG}
-    environment: 
+    environment:
     #  - SERVER_PROFILE_URL=https://github.com/pingidentity/pingidentity-server-profiles.git
     #  - SERVER_PROFILE_PATH=pdg-pap-integration/pingdatagovernancepap
       - PING_IDENTITY_ACCEPT_EULA=YES
       - HTTPS_PORT=8443
-    env_file: 
+    env_file:
       - ~/.pingidentity/devops
     volumes:
     #  - ${HOME}/projects/devops/volumes/full-stack.pingdatagovernancepap:/opt/out
@@ -57,8 +57,8 @@ services:
   pingdirectory:
     image: pingidentity/pingdirectory:${PING_IDENTITY_DEVOPS_TAG}
     environment:
-      - SERVER_PROFILE_URL=https://github.com/pingidentity/pingidentity-server-profiles.git
-      - SERVER_PROFILE_PATH=baseline/pingdirectory
+      - SERVER_PROFILE_URL=https://github.com/robpieperping/pingidentity-server-profiles-master.git
+      - SERVER_PROFILE_PATH=baseline/pingdatagovernance
       - PING_IDENTITY_ACCEPT_EULA=YES
     env_file:
       - ~/.pingidentity/devops
@@ -77,7 +77,7 @@ services:
       - 1443-1453:443
     networks:
       - pingnet-internal
-              
+
 networks:
     pingnet-internal:
     pingnet-dmz:
