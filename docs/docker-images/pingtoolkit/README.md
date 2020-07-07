@@ -8,7 +8,7 @@ to perform tasks aside a running set of pods/containers.
 
 ## Related Docker Images
 - pingidentity/pingbase - Parent Image
-	>**This image inherits, and can use, Environment Variables from [pingidentity/pingbase](https://pingidentity-devops.gitbook.io/devops/docker-images/pingbase)**
+	>**This image inherits, and can use, Environment Variables from [pingidentity/pingbase](https://pingidentity-devops.gitbook.io/devops/dockerimagesref/pingbase)**
 - pingidentity/pingcommon - Common Ping files (i.e. hook scripts)
 
 ## Environment Variables
@@ -28,4 +28,4 @@ Please go [here](https://github.com/pingidentity/pingidentity-devops-getting-sta
 ---
 This document auto-generated from _[pingtoolkit/Dockerfile](https://github.com/pingidentity/pingidentity-docker-builds/blob/master/pingtoolkit/Dockerfile)_
 
-Copyright (c)  2019 Ping Identity Corporation. All rights reserved.
+Copyright (c) 2020 Ping Identity Corporation. All rights reserved.

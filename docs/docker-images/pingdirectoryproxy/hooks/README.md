@@ -1,32 +1,10 @@
 
 # Ping Identity DevOps `pingdirectoryproxy` Hooks
-List of available hooks:
-* [CONTRIBUTING.md](CONTRIBUTING.md.md)
-* [DISCLAIMER](DISCLAIMER.md)
-* [LICENSE.md](LICENSE.md.md)
-* [README.md](README.md.md)
-* [apache-jmeter](apache-jmeter.md)
-* [ci_scripts](ci_scripts.md)
-* [integration_tests](integration_tests.md)
-* [ldap-sdk-tools](ldap-sdk-tools.md)
-* [pingaccess](pingaccess.md)
-* [pingbase](pingbase.md)
-* [pingcentral](pingcentral.md)
-* [pingcommon](pingcommon.md)
-* [pingdatacommon](pingdatacommon.md)
-* [pingdataconsole](pingdataconsole.md)
-* [pingdatagovernance](pingdatagovernance.md)
-* [pingdatagovernancepap](pingdatagovernancepap.md)
-* [pingdatasync](pingdatasync.md)
-* [pingdelegator](pingdelegator.md)
-* [pingdirectory](pingdirectory.md)
-* [pingdirectoryproxy](pingdirectoryproxy.md)
-* [pingdownloader](pingdownloader.md)
-* [pingfederate](pingfederate.md)
-* [pingjvm](pingjvm.md)
-* [pingtoolkit](pingtoolkit.md)
+There are no default hooks defined for the `pingdirectoryproxy` image.
+
+Hooks defined by parent images (i.e. pingcommon/pingdatacommon)
+will be inherited by this image.
 
 ---
-This document auto-generated from _[pingdirectoryproxy/hooks](https://github.com/pingidentity/pingidentity-docker-builds/blob/master/pingdirectoryproxy/hooks)_
 
-Copyright (c)  2019 Ping Identity Corporation. All rights reserved.
+Copyright (c) 2020 Ping Identity Corporation. All rights reserved.

@@ -6,7 +6,7 @@ metadata:
   name: pingdatagovernancepap
 spec:
   ports:
-  - name: http
+  - name: https
     port: 8443
   selector:
     role: pingdatagovernancepap
@@ -36,7 +36,6 @@ spec:
             name: devops-secret
             optional: true
         image: pingidentity/pingdatagovernancepap:edge
-        imagePullPolicy: Always
         name: pingdatagovernancepap
         ports:
         - containerPort: 8443

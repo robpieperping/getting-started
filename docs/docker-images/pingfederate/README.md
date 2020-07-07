@@ -7,7 +7,7 @@ Engine nodes.
 
 ## Related Docker Images
 - pingidentity/pingbase - Parent Image
-	>**This image inherits, and can use, Environment Variables from [pingidentity/pingbase](https://pingidentity-devops.gitbook.io/devops/docker-images/pingbase)**
+	>**This image inherits, and can use, Environment Variables from [pingidentity/pingbase](https://pingidentity-devops.gitbook.io/devops/dockerimagesref/pingbase)**
 - pingidentity/pingcommon - Common Ping files (i.e. hook scripts)
 - pingidentity/pingdownloader - Used to download product bits
 
@@ -58,7 +58,7 @@ Follow Docker logs with:
 docker logs -f pingfederate
 ```
 
-If using the command above with the embedded [server profile](../server-profiles/README.md), log in with:
+If using the command above with the embedded [server profile](https://pingidentity-devops.gitbook.io/devops/config/containeranatomy), log in with:
 * https://localhost:9999/pingfederate/app
   * Username: Administrator
   * Password: 2FederateM0re
@@ -68,4 +68,4 @@ Please go [here](https://github.com/pingidentity/pingidentity-devops-getting-sta
 ---
 This document auto-generated from _[pingfederate/Dockerfile](https://github.com/pingidentity/pingidentity-docker-builds/blob/master/pingfederate/Dockerfile)_
 
-Copyright (c)  2019 Ping Identity Corporation. All rights reserved.
+Copyright (c) 2020 Ping Identity Corporation. All rights reserved.

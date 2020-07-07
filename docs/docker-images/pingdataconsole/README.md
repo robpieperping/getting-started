@@ -38,7 +38,7 @@ Follow Docker logs with:
 docker logs -f pingdataconsole
 ```
 
-If using the command above with the embedded [server profile](../server-profiles/README.md), log in with:
+If using the command above with the embedded [server profile](https://pingidentity-devops.gitbook.io/devops/config/containeranatomy), log in with:
 * http://localhost:${HTTPS_PORT}/console/login
 ```
 Server: pingdirectory
@@ -52,4 +52,4 @@ Please go [here](https://github.com/pingidentity/pingidentity-devops-getting-sta
 ---
 This document auto-generated from _[pingdataconsole/Dockerfile](https://github.com/pingidentity/pingidentity-docker-builds/blob/master/pingdataconsole/Dockerfile)_
 
-Copyright (c)  2019 Ping Identity Corporation. All rights reserved.
+Copyright (c) 2020 Ping Identity Corporation. All rights reserved.

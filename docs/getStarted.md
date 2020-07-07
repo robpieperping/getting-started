@@ -1,175 +1,84 @@
 # Get started
 
-You can quickly deploy Docker images of Ping Identity products. We use Docker to deploy the Docker images in stable, network-enabled containers. For lightweight orchestration purposes, we use Docker Compose. For enterprise-level orchestration, we use Kubernetes. The Docker images are preconfigured to provide working instances of our products, either as single containers or as orchestrated sets of containers. 
-
-You'll need an evaluation license to use the DevOps resources. You'll clone our getting started repository, set up your DevOps environment, and deploy our full stack of product containers using Docker Compose. When you first start the Docker stack, each of the Docker images is automatically pulled from our repository, unless you've already pulled the images from our [Docker Hub](https://hub.docker.com/u/pingidentity/) site. You can then choose to try out any one or more of our products, all preconfigured to interoperate.
+You can quickly deploy Docker images of Ping Identity products. We use Docker, Docker Compose, and Kubernetes to deploy our Docker images in stable, network-enabled containers. Our Docker images are preconfigured to provide working instances of our products, either as single containers or as orchestrated sets of containers.  
 
 ## Prerequisites
 
-* [Docker](https://docs.docker.com/install/).
-* [Git](https://git-scm.com/downloads).
-* An existing `{HOME}/.bash_profile` file. The initial `setup` script writes to this file. If the file doesn't exist, open a terminal and create it by entering: 
+* [Docker](https://docs.docker.com/install/)
+* [Docker Compose](https://docs.docker.com/compose/install/) (included with Docker Desktop on Mac and Windows)
+* You've installed the [ping-devops utility](pingDevopsUtil.md#installation).
 
-  ```shell
-  touch ~/.bash_profile.
-  ```
+### Product license
 
-## What you'll do
+You'll need a product license to run our Docker images. You can use either:
 
-1. Create a Ping Identity account get a DevOps evaluation license, or sign on to your existing account and register for a DevOps user name and key.
-2. Open a terminal and create the local DevOps directory, `${HOME}/projects/devops`.
+* An evaluation license obtained with a valid DevOps user key. See [DevOps registration](devopsRegistration.md) for more information.
+  
+* Although you'll first need to complete your [DevOps registration](devopsRegistration.md), you can subsequently use a valid product license available with a current Ping Identity customer subscription. 
+
+## Set up your DevOps environment
+
+1. Open a terminal and create a local DevOps directory named `${HOME}/projects/devops`.
 
    > We'll use this as the parent directory for all DevOps examples referenced in our documentation.
 
-3. Clone the DevOps repository, `https://github.com/pingidentity/pingidentity-devops-getting-started.git` to your local `${HOME}/projects/devops` directory.
-4. Run our `setup` script in `${HOME}/projects/devops/pingidentity-devops-getting-started` to quickly set up the DevOps environment. Your entries are written to the file `${HOME}/.pingidentity/devops`. You can also add to this file the license variable assignment `PING_IDENTITY_ACCEPT_EULA=YES`.
-5. Use Docker Compose to deploy the full stack located in your local `pingidentity-devops-getting-started/11-docker-compose/03-full-stack` directory.
-6. Log in to the management consoles for the products.
-7. See [Saving your configuration changes](saveConfigs.md) to persist data to a local Docker volume.
-8. Stop or bring down the stack.
-
-See the **DevOps registration** and **Initial setup** topics below for complete instructions.
-
-When you've finished the initial setup and deployment, you can then choose to:
-
-* Rerun the full stack evaluation. 
-* [Configure and deploy our other examples](deploy.md).
-* [Customize the container and stack configurations](config.md).
-
-## DevOps registration
-
-Registering for our DevOps program grants you credentials that can be provided as variables to our containers. This streamlines license issues by allowing the container to automatically retrieve an evaluation license upon container startup. 
-
-  > Evaluation licenses are short-lived and *not* intended for use in production deployments.
-
-1. [Create a Ping Identity account, or sign on to your existing account](https://www.pingidentity.com/en/account/sign-on.html).
-2. You'll need a DevOps user name and DevOps key. Your DevOps user name is the email address associated with your Ping Identity account. Request your DevOps key using this [form](https://docs.google.com/forms/d/e/1FAIpQLSdgEFvqQQNwlsxlT6SaraeDMBoKFjkJVCyMvGPVPKcrzT3yHA/viewform).
-
-    Your DevOps user name and key will be sent to your email. This will generally take only a few business hours.
-
-> For ease of use, we recommend you use the DevOps user name and key approach when evaluating our container use-cases. However, if you'd rather use an existing Ping Identity product license, see [Use an existing license](existingLicense.md) for instructions before proceeding.
-
-## Initial setup
-
-1. Create a local DevOps directory in this location: `${HOME}/projects/devops`. For example, enter:
+2. Configure your DevOps environment:  
 
     ```bash
-    mkdir -p ${HOME}/projects/devops
-    cd ${HOME}/projects/devops
+    ping-devops config
+    ``` 
+
+   a. Respond to all Docker configuration questions, accepting the defaults if you're not sure.  You can accept the (empty) defaults for Kubernetes. Settings for custom variables aren't needed initially.
+
+   b. All of your responses are stored as settings in your local `~/.pingidentity/devops` file. Allow the configuration script to source this file in your shell profile (for example, ~/.bash_profile).
+
+3. To display your DevOps environment settings, enter:
+
+   ```shell
+   ping-devops info
+   ```
+
+4. You can use the ping-devops utility to run a quick demonstration of any of our products in your Docker environment. 
+   
+   a. To display information about the containers or stacks available using the ping-devops utility, enter:
+
+   ```shell
+   ping-devops docker info
+   ```
+
+   b. To display information about one of the listed containers or stacks, enter:
+
+   ```shell
+   ping-devops docker <name>
+   ```
+
+   Where \<name> is one of the listed container or stack names.
+
+5. To start one of the containers or stacks, enter:
+
+    ```shell
+    ping-devops docker start <name>
     ```
 
-   > We'll use this as the parent directory for all DevOps examples referenced in our documentation. A common location will make it easier for us to help you if issues occur.
+   Where \<name> is one of the listed container or stack names.
 
-2. Clone the DevOps repository to the `${HOME}/projects/devops` directory on your local machine:
+     > The initial run will ensure dependencies are met (such as, Docker or Docker Compose).
 
-   ```bash
-   git clone https://github.com/pingidentity/pingidentity-devops-getting-started.git
-   ```
+6. When you're done:
 
-3. Go to the `${HOME}/projects/devops/pingidentity-devops-getting-started` directory and run our `setup` script.
-This script will ask some questions then create an environment on the host machine. 
+   To stop the container or stack, enter:
 
-For example, enter:
+    ```shell
+    ping-devops docker stop <name>
+    ```
 
-   ```bash
-   cd pingidentity-devops-getting-started
-   ./setup
-   ```
-   > The setup script also offers to add command aliases to make running Docker and Kubernetes commands easier.
+    To remove the container or stack and all associated data, enter
 
-   The setup script stores your entries in the file `${HOME}/.pingidentity/devops`. Many of the examples in `${HOME}/projects/devops/pingidentity-devops-getting-started` will either source the `devops` file as variables into the container, or expect the file to be sourced in the current shell. So:
+    ```shell
+    ping-devops docker rm  <name> 
+    ```
 
+## Next step
 
-4. Refresh your OS shell or open a new terminal. To refresh your current shell, enter:
-
-   ```bash
-   source ~/.bash_profile
-   ```
-
-5. Enter `dhelp` to see the listing of the command aliases.
-
-   > If the `dhelp` command isn't working, see [Troubleshooting](troubleshooting.md).
-
-## Deploy the stack
-
-1. Deploy the full stack of product containers:
-
-   > For your initial deployment of the stack, we recommend you make no changes to the `docker-compose.yaml` file to ensure you have a successful first-time deployment. Any configuration changes you make will not be saved when you bring down the stack. For subsequent deployments, see [Saving your configuration changes](saveConfigs.md).
-
-   a. To start the stack, on your local machine, go to the `pingidentity-devops-getting-started/11-docker-compose/03-full-stack` directory and enter:
-
-   ```bash
-   docker-compose up -d
-   ```
-
-   The full set of DevOps images is automatically pulled from our repository, if you haven't already pulled the images from [Docker Hub](https://hub.docker.com/u/pingidentity/).
-
-   b. Use this command to display the logs as the stack starts:
-
-   ```bash
-   docker-compose logs -f
-   ```
-
-   Enter `Ctrl+C` to exit the display.
-
-   c. Use either of these commands to display the status of the Docker containers in the stack:
-
-   * `docker ps` (enter this at intervals)
-   * `watch "docker container ls --format 'table {{.Names}}\t{{.Status}}'"`
-
-   Refer to the Docker Compose documentation [on the Docker site](https://docs.docker.com/compose/).
-
-2. Log in to the management consoles for the products:
-
-   * Ping Data Console for PingDirectory
-     - Console URL: `https://localhost:8443/console`
-     - Server: pingdirectory
-     - User: Administrator
-     - Password: 2FederateM0re
-
-   * PingFederate
-     - Console URL: `https://localhost:9999/pingfederate/app`
-     - User: Administrator
-     - Password: 2FederateM0re
-
-   * PingAccess
-     - Console URL: `https://localhost:9000`
-     - User: Administrator
-     - Password: 2FederateM0re
-
-   * Ping Data Console for DataGovernance
-     - Console URL: `https://localhost:8443/console`
-     - Server: pingdatagovernance
-     - User: Administrator
-     - Password: 2FederateM0re
-
-   * PingCentral
-     - Console URL: `https://localhost:9022`
-     - User: Administrator
-     - Password: 2Federate
-
-   * Apache Directory Studio for PingDirectory
-     - LDAP Port: 1636
-     - LDAP BaseDN: dc=example,dc=com
-     - Root Username: cn=administrator
-     - Root Password: 2FederateM0re
-
-<!-- TODO: add instructions pertaining to the use cases with fullstack
-  1. OAuth Playground
-  2. httpbin
-  3. datagov? Pingcentral? -->
-
-3. When you no longer want to run this full stack evaluation, you can either stop the running stack, or bring the stack down.
-
-   To stop the running stack without removing any of the containers or associated Docker networks, enter:
-
-   ```bash
-   docker-compose stop
-   ```
-
-   To remove all of the containers and associated Docker networks, enter:
-
-   ```bash
-   docker-compose down
-   ```
+* [Deploy an example stack](getStartedWithGitRepo.md).
 

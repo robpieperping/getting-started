@@ -9,7 +9,6 @@
                     because a server.uuid file is not present.
           RESTART - Instructs the container to restart an existing directory.  This is
                     primarily because an existing server.uuid file is prsent.
- 
  PD_STATE (Initially set to UNKNOWN)
           SETUP   - Specifies that the server should be setup
           UPDATE  - Specifies that the server should be updated
@@ -17,6 +16,6 @@
                     SEED Server and initial server should be setup and data imported
 
 ---
-This document auto-generated from _[pingdirectory/hooks/03-build-run-plan.sh](https://github.com/pingidentity/pingidentity-docker-builds/blob/master/pingdirectory/hooks/03-build-run-plan.sh)_
+This document auto-generated from _[pingdirectory/opt/staging/hooks/03-build-run-plan.sh](https://github.com/pingidentity/pingidentity-docker-builds/blob/master/pingdirectory/opt/staging/hooks/03-build-run-plan.sh)_
 
-Copyright (c)  2019 Ping Identity Corporation. All rights reserved.
+Copyright (c) 2020 Ping Identity Corporation. All rights reserved.

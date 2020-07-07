@@ -1,3 +1,30 @@
+
+echo "WARNING: bash_profile_devops has been deprecated.
+
+################################################################################
+#                              Ping Identity DevOps
+#
+#  This bash_profile_devops alias file has been deprecated in lieu of the
+#  new 'bash_profile.ping-devops' alias file provided by the 'ping-devops' tool.
+#
+#  INSTALLING ping-devops (and bash_profile.ping-devops)
+#    On Mac OSX (or Linux using brew)
+#      brew tap pingidentity/devops
+#      brew install ping-devops
+#  
+#    On Linux
+#      curl -sL https://bit.ly/ping-devops-install | bash
+#
+#  CONFIG/SETUP
+#    1. Remove source of 'bash_profile_devops' file from .bash_profile
+#    2. ping-devops config
+################################################################################
+"
+
+
+
+
+
 ##############################################################################
 # Aliases of commonly used docker commands and those related to the
 # Ping Identity DevOps Program.
@@ -12,9 +39,9 @@
 bold=$(tput bold)
 normal=$(tput sgr0)
 
-function pdo()
-{
-    run cd ${PING_IDENTITY_DEVOPS_HOME}/$*
+function pdo() 
+{ 
+    run cd ${PING_IDENTITY_DEVOPS_HOME}/$* 
 }
 
 alias pdog="pdo pingidentity-devops-getting-started"
@@ -23,7 +50,7 @@ alias pdos="pdo pingidentity-server-profiles"
 
 
 ## dhelp
-function dhelp ()
+function dhelp () 
 {
 cat <<EOHELP
 +----------------------------------------------------------------------------+
@@ -32,22 +59,22 @@ cat <<EOHELP
  ${bold}DevOps Information${normal}
  -------------------------------------
  denv - get devops details
-
+ 
  ${bold}Container${normal}                                 ${bold}Image${normal}
  -------------------------------------     ----------------------------------
- dce - execute commands (i.e. /bin/sh)     dib - build
+ dce - execute commands (i.e. /bin/sh)     dib - build 
  dci - inspect                             dii - inspect
- dcl - list                                dil - list
+ dcl - list                                dil - list 
  dcr - remove forcefully                   dir - remove forcefully
- dcp - prune                               dip - prune
- dct - run top                             dit - tag
+ dcp - prune                               dip - prune 
+ dct - run top                             dit - tag 
  dcstop  - stop                            diw - remove pingidentity images
- dcstart - start
+ dcstart - start                            
  dck    - stop
  dlogs  - tail logs
  dsa - docker stop all
- dra - docker remove all
-
+ dra - docker remove all              
+                                          
  ${bold}Volume${normal}                    ${bold}Network${normal}                   ${bold}Service${normal}
  ------------------------  ------------------------  ------------------------
  dvc - create              dnc - create              dsl - list
@@ -75,7 +102,7 @@ EOHELP
 }
 
 ## denv
-function denv ()
+function denv () 
 {
     sourcePingIdentityFiles
 
@@ -90,12 +117,12 @@ cat <<EOP1ENV
 |          PING_IDENTITY_DEVOPS_HOME: ${PING_IDENTITY_DEVOPS_HOME}
 |          PING_IDENTITY_DEVOPS_TAG : ${PING_IDENTITY_DEVOPS_TAG}
 +-----------------------------------------------------------------------------------------+
- To update, run Ping Identity DevOps Setup
+ To update, run Ping Identity DevOps Setup 
     (found in your the pingidentity-devops-getting-started git repo)/setup
 
  To use with 'docker run command'
-     docker run
-        ...
+     docker run 
+        ... 
         --env-file ~/.pingidentity/devops
         ...
 
@@ -122,8 +149,8 @@ alias pingdownload="docker run --rm -v ~/Downloads:/tmp pingidentity/pingdownloa
 alias dps="run docker ps"
 
 # Stop all running containers
-dsa()
-{
+dsa() 
+{ 
   echo "Running command to: ${bold}Stop all running containers${normal}";
   c=$(docker container ls -a -q)
   if ! test -z $c ; then
@@ -134,7 +161,7 @@ dsa()
 }
 
 # Remove all stopped containers
-dra()
+dra() 
 {
   echo "Running command to: ${bold}Remove all stopped containers${normal}";
   c=$(docker container ls -a -q)
@@ -155,7 +182,7 @@ alias dck="dcstop"
 alias dcstart="run docker container start"
 alias dlogs="run docker logs -f"
 
-## image
+## image  
 alias dib="run docker image build"
 alias dii="run docker image inspect"
 alias dil="run docker images"
@@ -164,22 +191,17 @@ alias dip="run docker image prune -f"
 alias dit="run docker image tag"
 
 # Remove all Ping Identity docker images
-
-
-dirp()
+diw()
 {
   echo "Running command to: ${bold}Remove all Ping Identity Docker images${normal}";
-#  dip;
-#  i=$(docker images 'pingidentity/*' -q|sort|uniq);
-#  if [ ! -z "${i}" ]; then
-#    run docker image rm -f $(docker image ls "pingidentity/*");
-#  else
-#    echo "***No Ping Identity images present to remove***";
-#  fi
+  dip;
+  i=$(docker images 'pingidentity/*' -q|sort|uniq);
+  if [ ! -z "${i}" ]; then
+    run docker image rm -f $(docker image ls "pingidentity/*");
+  else
+    echo "***No Ping Identity images present to remove***"
+  fi
 }
-
-
-
 # Remove all docker images
 din()
 {
@@ -226,7 +248,7 @@ alias dlf="run docker logs -f"
 alias ddc="dcp ; dvp ; dip; dnp"
 
 ## kenv
-function kenv ()
+function kenv () 
 {
     sourcePingIdentityFiles
 
@@ -266,7 +288,7 @@ EOP1ENV
 }
 
 ## khelp
-function khelp ()
+function khelp () 
 {
 cat <<EOHELP
 +----------------------------------------------------------------------------+
@@ -278,29 +300,29 @@ cat <<EOHELP
  kubectx - get kubernetes context info
  kubens - get kubernetes namespace info
 
- ${bold}General Info${normal}
- -------------------------------------
- kall - get k8s objects in namespace
+ ${bold}General Info${normal}       
+ ------------------------------------- 
+ kall - get k8s objects in namespace  
  kd, kdescribe - describe
-
+ 
  ${bold}Get${normal}                                       ${bold}Describe${normal}
  -------------------------------------     ----------------------------------
  kg, kget - get {type}                     kd, kdescribe - describe {type}
  kgp - get pods                            kdp - describe pods
  kgs - get services                        kds - describe services
- kgi - get ingresses
+ kgi - get ingresses                       
  kgn - get nodes                           kdn - describe nodes
 
  ${bold}Pods${normal}                                      ${bold}Nodes${normal}
  -------------------------------------     ----------------------------------
- kpe - execute commands (i.e. /bin/sh)
+ kpe - execute commands (i.e. /bin/sh)     
  kpl - list                                knl - list
- klogs  - tail logs for a pod
+ klogs  - tail logs for a pod              
 
- ${bold}Delete${normal}
+ ${bold}Delete${normal}                      
  -------------------------------------
  knuke [option] - delete ${bold}all${normal} resources in a namespace, defaults to current namespace
-
+      
 
  ${bold}Special${normal}
  ----------------------------------------------------------------------------
@@ -310,7 +332,7 @@ EOHELP
 }
 
 #TODO: add:
-# kdelpo - delete all pods in namespace
+# kdelpo - delete all pods in namespace     
 # kdelall [option]- delete all [option] (pods, deployments, services) in namespace
 
 ## kubernetes
@@ -361,7 +383,7 @@ function knuke() {
   if test "${nuke}" = "y" || test "${nuke}" = "yes"; then
     echo "${bold}deploy nuke${normal}";
     kubectl delete pods,configmaps,secrets,jobs,cronjobs,statefulsets,deployments,persistentvolumeclaims,services,ingresses -n "$(kubectl get sa default -o jsonpath='{.metadata.namespace}')" --grace-period=0 --force --all
-  else
+  else 
     echo "crisis averted"
   fi
 }
@@ -389,7 +411,7 @@ function kdelall() {
 ##############################################################################
 
 ## p1help
-function p1help ()
+function p1help () 
 {
 cat <<EOP1HELP
 +----------------------------------------------------------------------------+
@@ -399,20 +421,20 @@ cat <<EOP1HELP
  -------------------------------------
  p1env - get setup details
  p1auth - get authentication token
-
+ 
  ${bold}Environment${normal}                               ${bold}Populations${normal}
  -------------------------------------     ----------------------------------
- p1e - environment details                 p1p - population details
+ p1e - environment details                 p1p - population details 
  p1en - environment name                   p1pn - population name
                                            p1pc - population user count
-
+ 
   ${bold}Users${normal}                                    ${bold}Applications${normal}
  -------------------------------------     ----------------------------------
- p1u - users details (first 100)           p1a - aplication details
+ p1u - users details (first 100)           p1a - aplication details 
  p1ui - users ids (first 100)              p1an - aplication name
 
-  ${bold}Generic Call${normal}
- -------------------------------------
+  ${bold}Generic Call${normal}             
+ -------------------------------------     
  p14c - Generic Call (any URI after environments/env-guid)
 
  Examples:
@@ -424,7 +446,7 @@ EOP1HELP
 }
 
 ## sourcePingIdentityFiles
-function sourcePingIdentityFiles ()
+function sourcePingIdentityFiles () 
 {
     test -f ~/.pingidentity/devops && \
         . ~/.pingidentity/devops && \
@@ -441,7 +463,7 @@ function sourcePingIdentityFiles ()
 }
 
 ## p1env
-function p1env ()
+function p1env () 
 {
     sourcePingIdentityFiles
 
@@ -467,7 +489,7 @@ function _p14c()
 {
   _RESOURCE="$1"
   _ATTR="$2"
-  _ID="$3"
+  _ID="$3"  
 
   sourcePingIdentityFiles
 
@@ -496,7 +518,7 @@ function _p14c()
   test ! -z ${_ID} && _URL+="/${_ID}"
   # echo "PingOne For Customer URL: ${bold}$_URL ${normal}"
   curl -X GET -H "Authorization: Bearer $PING_ONE_AUTH_TOKEN" "${_URL}" \
-    2>/dev/null | jq $_JQ_OPT
+    2>/dev/null | jq $_JQ_OPT  
 }
 
 function p1auth()
@@ -508,9 +530,9 @@ function p1auth()
     -d "grant_type=client_credentials&client_id=${PING_ONE_CLIENT_ID}&client_secret=${PING_ONE_CLIENT_SECRET}" \
     2> /dev/null )
 
-  _TOKEN=$( echo ${_AUTH} | jq -r '.access_token' )
-  _EXPIRES=$( echo ${_AUTH} | jq -r '.expires_in' )
-
+  _TOKEN=$( echo ${_AUTH} | jq -r '.access_token' ) 
+  _EXPIRES=$( echo ${_AUTH} | jq -r '.expires_in' ) 
+ 
   echo "########################################################################
 # Ping One Access Token
 #
@@ -525,10 +547,10 @@ PING_ONE_AUTH_TOKEN=$_TOKEN" > ~/.pingidentity/p14c.access_token
 }
 
 
-alias p1e="_p14c environments"
+alias p1e="_p14c environments" 
 alias p1en="_p14c environments name"
 
-alias p1p="_p14c populations"
+alias p1p="_p14c populations" 
 alias p1pn="_p14c populations name"
 alias p1pc="_p14c populations userCount"
 
@@ -551,3 +573,5 @@ get_value ()
     eval printf '%s' "\${${1}}"
     unset IFS
 }
+
+

@@ -6,9 +6,12 @@ List of available hooks:
 * [181-install-extensions.sh](181-install-extensions.sh.md)
 * [183-run-setup.sh](183-run-setup.sh.md)
 * [185-apply-tools-properties.sh](185-apply-tools-properties.sh.md)
+* [21-update-server-profile.sh](21-update-server-profile.sh.md)
 * [pingdata.lib.sh](pingdata.lib.sh.md)
 
----
-This document auto-generated from _[pingdatacommon/hooks](https://github.com/pingidentity/pingidentity-docker-builds/blob/master/pingdatacommon/hooks)_
+These hooks will replace hooks defined by parent images (i.e. pingcommon/pingdatacommon)
 
-Copyright (c)  2019 Ping Identity Corporation. All rights reserved.
+---
+This document auto-generated from _[pingdatacommon/opt/staging/hooks](https://github.com/pingidentity/pingidentity-docker-builds/blob/master/pingdatacommon/opt/staging/hooks)_
+
+Copyright (c) 2020 Ping Identity Corporation. All rights reserved.

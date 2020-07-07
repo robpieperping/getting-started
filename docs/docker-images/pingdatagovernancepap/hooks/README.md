@@ -6,7 +6,9 @@ List of available hooks:
 * [80-post-start.sh](80-post-start.sh.md)
 * [81-install-policies.sh](81-install-policies.sh.md)
 
----
-This document auto-generated from _[pingdatagovernancepap/hooks](https://github.com/pingidentity/pingidentity-docker-builds/blob/master/pingdatagovernancepap/hooks)_
+These hooks will replace hooks defined by parent images (i.e. pingcommon/pingdatacommon)
 
-Copyright (c)  2019 Ping Identity Corporation. All rights reserved.
+---
+This document auto-generated from _[pingdatagovernancepap/opt/staging/hooks](https://github.com/pingidentity/pingidentity-docker-builds/blob/master/pingdatagovernancepap/opt/staging/hooks)_
+
+Copyright (c) 2020 Ping Identity Corporation. All rights reserved.

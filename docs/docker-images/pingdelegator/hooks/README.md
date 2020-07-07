@@ -1,32 +1,13 @@
 
 # Ping Identity DevOps `pingdelegator` Hooks
 List of available hooks:
-* [CONTRIBUTING.md](CONTRIBUTING.md.md)
-* [DISCLAIMER](DISCLAIMER.md)
-* [LICENSE.md](LICENSE.md.md)
-* [README.md](README.md.md)
-* [apache-jmeter](apache-jmeter.md)
-* [ci_scripts](ci_scripts.md)
-* [integration_tests](integration_tests.md)
-* [ldap-sdk-tools](ldap-sdk-tools.md)
-* [pingaccess](pingaccess.md)
-* [pingbase](pingbase.md)
-* [pingcentral](pingcentral.md)
-* [pingcommon](pingcommon.md)
-* [pingdatacommon](pingdatacommon.md)
-* [pingdataconsole](pingdataconsole.md)
-* [pingdatagovernance](pingdatagovernance.md)
-* [pingdatagovernancepap](pingdatagovernancepap.md)
-* [pingdatasync](pingdatasync.md)
-* [pingdelegator](pingdelegator.md)
-* [pingdirectory](pingdirectory.md)
-* [pingdirectoryproxy](pingdirectoryproxy.md)
-* [pingdownloader](pingdownloader.md)
-* [pingfederate](pingfederate.md)
-* [pingjvm](pingjvm.md)
-* [pingtoolkit](pingtoolkit.md)
+* [02-get-remote-server-profile.sh.post](02-get-remote-server-profile.sh.post.md)
+* [04-check-variables.sh](04-check-variables.sh.md)
+* [17-check-license.sh](17-check-license.sh.md)
+
+These hooks will replace hooks defined by parent images (i.e. pingcommon/pingdatacommon)
 
 ---
-This document auto-generated from _[pingdelegator/hooks](https://github.com/pingidentity/pingidentity-docker-builds/blob/master/pingdelegator/hooks)_
+This document auto-generated from _[pingdelegator/opt/staging/hooks](https://github.com/pingidentity/pingidentity-docker-builds/blob/master/pingdelegator/opt/staging/hooks)_
 
-Copyright (c)  2019 Ping Identity Corporation. All rights reserved.
+Copyright (c) 2020 Ping Identity Corporation. All rights reserved.
