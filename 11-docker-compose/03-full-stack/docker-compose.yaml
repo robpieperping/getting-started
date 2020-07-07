@@ -121,9 +121,9 @@ services:
   pingcentral:
     image: ${PING_IDENTITY_DEVOPS_REGISTRY}/pingcentral:${PING_IDENTITY_DEVOPS_TAG}
     environment:
-      - SERVER_PROFILE_URL=https://github.com/robpieperping/server-profiles.git
+      - SERVER_PROFILE_URL=https://github.com/pingidentity/pingidentity-server-profiles.git
       - SERVER_PROFILE_PATH=baseline/pingcentral/dev-unsecure
-    #  - SERVER_PROFILE_BRANCH=arno-dev-pingcentral
+      - SERVER_PROFILE_BRANCH=arno-dev-pingcentral
       - PING_CENTRAL_BLIND_TRUST=true
       - PING_CENTRAL_LOG_LEVEL=DEBUG
     env_file:
