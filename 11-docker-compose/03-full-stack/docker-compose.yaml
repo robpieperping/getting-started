@@ -48,8 +48,8 @@ services:
     networks:
       - pingnet-dmz
     volumes:
-      - pingaccess-out:/opt/out
-    #  - ${HOME}/projects/devops/pingidentity-server-profiles/baseline/pingaccess:/opt/in
+      - /Users/robpieper/projects/devops/volumes/pingaccess-out:/opt/out
+      - /Users/robpieper/Documents/GitHub/server-profiles/baseline/pingaccess:/opt/in
 
   pingdatagovernance:
     image: ${PING_IDENTITY_DEVOPS_REGISTRY}/pingdatagovernance:${PING_IDENTITY_DEVOPS_TAG}
@@ -66,8 +66,8 @@ services:
       - pingnet-dmz
       - pingnet-internal
     volumes:
-      - pingdatagovernance-out:/opt/out
-    #  - ${HOME}/projects/devops/pingidentity-server-profiles/baseline/pingdatagovernance:/opt/in
+      - /Users/robpieper/projects/devops/volumes/pingdatagovernance-out:/opt/out
+      - /Users/robpieper/Documents/GitHub/server-profiles/baseline/pingdatagovernance:/opt/in
 
   pingfederate:
     image: ${PING_IDENTITY_DEVOPS_REGISTRY}/pingfederate:${PING_IDENTITY_DEVOPS_TAG}
@@ -84,8 +84,8 @@ services:
       - pingnet-dmz
       - pingnet-internal
     volumes:
-      - pingfederate-out:/opt/out
-    #  - ${HOME}/projects/devops/pingidentity-server-profiles/baseline/pingfederate:/opt/in
+      - /Users/robpieper/projects/devops/volumes/pingfederate-out:/opt/out
+      - /Users/robpieper/Documents/GitHub/server-profiles/baseline/pingfederate:/opt/in
 
   pingdirectory:
     image: ${PING_IDENTITY_DEVOPS_REGISTRY}/pingdirectory:${PING_IDENTITY_DEVOPS_TAG}
@@ -108,8 +108,8 @@ services:
     networks:
       - pingnet-internal
     volumes:
-      - pingdirectory-out:/opt/out
-    #  - ${HOME}/projects/devops/pingidentity-server-profiles/baseline/pingdirectory:/opt/in
+      - /Users/robpieper/projects/devops/volumes/pingdirectory-out:/opt/out
+      - /Users/robpieper/Documents/GitHub/server-profiles/baseline/pingdirectory:/opt/in
 
   pingdataconsole:
     image: ${PING_IDENTITY_DEVOPS_REGISTRY}/pingdataconsole:${PING_IDENTITY_DEVOPS_TAG}
@@ -133,8 +133,8 @@ services:
     networks:
       - pingnet-internal
     volumes:
-      - pingcentral-out:/opt/out
-    #  - ${HOME}/projects/devops/pingidentity-server-profiles/baseline/pingcentral:/opt/in
+      - /Users/robpieper/projects/devops/volumes/pingcentral-out:/opt/out
+      - /Users/robpieper/Documents/GitHub/server-profiles/baseline/pingcentral:/opt/in
 
   pingdelegator:
     image: ${PING_IDENTITY_DEVOPS_REGISTRY}/pingdelegator:${PING_IDENTITY_DEVOPS_TAG}
