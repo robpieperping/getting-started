@@ -1,0 +1,9 @@
+ID=00073166
+Product=PingDirectory
+EnforcementType=2
+Tier=Subscription
+IssueDate=2020-07-06
+ExpirationDate=2030-08-05
+DeploymentMethod=Traditional
+SignCode=7F
+Signature=302C02145CE0818765E21DABB125F264B5219BBA3E5217270214336C3EF44972EB4617E467FC7C76A51BC46FCE10
