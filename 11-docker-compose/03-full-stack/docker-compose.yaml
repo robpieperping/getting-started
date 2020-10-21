@@ -38,6 +38,8 @@ services:
     environment:
       - SERVER_PROFILE_URL=https://github.com/robpieperping/server-profiles.git
       - SERVER_PROFILE_PATH=baseline/pingaccess
+      - SERVER_PROFILE_LICENSE_URL=https://github.com/robpieperping/getting-started.git
+      - SERVER_PROFILE_LICENSE_PATH=licenses/pingaccess
     env_file:
       # Configuration file created when setup.sh (Getting-started project root directory) is first run to source
       # devops user/key details for evaluation licenses and for docker image/git tags
@@ -45,6 +47,7 @@ services:
     ports:
       - "443:443"
       - "9000:9000"
+      - "3000:3000"
     networks:
       - pingnet-dmz
     volumes:
@@ -75,6 +78,8 @@ services:
     environment:
       - SERVER_PROFILE_URL=https://github.com/robpieperping/server-profiles.git
       - SERVER_PROFILE_PATH=baseline/pingfederate
+      - SERVER_PROFILE_LICENSE_URL=https://github.com/robpieperping/getting-started.git
+      - SERVER_PROFILE_LICENSE_PATH=licenses/pingfederate
     env_file:
       - ${HOME}/.pingidentity/devops
     ports:
@@ -88,10 +93,12 @@ services:
       - /Users/robpieper/Documents/GitHub/server-profiles/baseline/pingfederate:/opt/in
 
   pingdirectory:
-    image: ${PING_IDENTITY_DEVOPS_REGISTRY}/pingdirectory:${PING_IDENTITY_DEVOPS_TAG}
+    image: ${PING_IDENTITY_DEVOPS_REGISTRY}/pingdirectory:latest
     environment:
-      - SERVER_PROFILE_URL=https://github.com/robpieperping/server-profiles.git
+      - SERVER_PROFILE_URL=https://github.com/pingidentity/pingidentity-server-profiles.git
       - SERVER_PROFILE_PATH=baseline/pingdirectory
+      - SERVER_PROFILE_LICENSE_URL=https://github.com/robpieperping/getting-started.git
+      - SERVER_PROFILE_LICENSE_PATH=licenses/pingdirectory
     env_file:
       - ${HOME}/.pingidentity/devops
     ulimits:
